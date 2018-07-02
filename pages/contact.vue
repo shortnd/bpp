@@ -21,13 +21,13 @@
             <h3>Estimate</h3>
             <div class="container">
               <label for="length">Length:
-              <input class="form-control" type="number" name="length" id="length" v-model.number="estimate.length" placeholder="0">
+              <input class="form-control" type="number" name="length" id="length" v-model.number="$store.state.estimate.length" placeholder="0">
               </label>
               <label for="width">Width:
-                <input type="number" name="width" id="width" class="form-control" v-model.number="estimate.width" placeholder="0">
+                <input type="number" name="width" id="width" class="form-control" v-model.number="$store.state.estimate.width" placeholder="0">
               </label>
               <br>
-              <label>Percentage: {{ estimate.percentage * 100 }}% ~ {{ estimate.highPercentage * 100 }}%</label>
+              <label>Percentage: {{ $store.state.estimate.percentage * 100 }}% ~ {{ $store.state.estimate.highPercentage * 100 }}%</label>
               <br>
               <sub>* Percentage my vary depending on job and equipment needed</sub>
               <br>
@@ -57,11 +57,11 @@ export default {
   },
   computed: {
     realTotal: function() {
-      let total = (this.estimate.length * this.estimate.width) * this.estimate.percentage
+      let total = (this.$store.state.estimate.length * this.$store.state.estimate.width) * this.$store.state.estimate.percentage
       return total
     },
     highTotal: function() {
-      let highTotal = (this.estimate.length * this.estimate.width) * this.estimate.highPercentage
+      let highTotal = (this.$store.state.estimate.length * this.$store.state.estimate.width) * this.$store.state.estimate.highPercentage
       return highTotal
     }
   },
