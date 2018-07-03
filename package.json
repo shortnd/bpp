@@ -19,6 +19,7 @@
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",

@@ -16,25 +16,9 @@
         <textarea class="form-control" name="main-message" id="main-message" cols="30" rows="10" required aria-required="true"></textarea>
         <span @click="addEstimateCalculate = !addEstimateCalculate">
           <span v-if="!addEstimateCalculate" class="estimate-link estimate-link-show">+ Add Estimate</span><span v-else class="estimate-link estimate-link-hide">- Hide Estimate</span></span>
-        <div v-show="this.addEstimateCalculate">
-          <div class="col-md-8">
-            <h3>Estimate</h3>
-            <div class="container">
-              <label for="length">Length:
-              <input class="form-control" type="number" name="length" id="length" v-model.number="$store.state.estimate.length" placeholder="0">
-              </label>
-              <label for="width">Width:
-                <input type="number" name="width" id="width" class="form-control" v-model.number="$store.state.estimate.width" placeholder="0">
-              </label>
-              <br>
-              <label>Percentage: {{ $store.state.estimate.percentage * 100 }}% ~ {{ $store.state.estimate.highPercentage * 100 }}%</label>
-              <br>
-              <sub>* Percentage my vary depending on job and equipment needed</sub>
-              <br>
-              Estimated Total: ${{ round(realTotal) }} ~ ${{ round(highTotal) }}
-            </div>
+          <div v-show="this.addEstimateCalculate">
+            <estimate></estimate>
           </div>
-        </div>
         <br>
         <button class="btn btn-primary">Submit</button>
       </form>
@@ -43,33 +27,15 @@
 </template>
 
 <script>
+import Estimate from '~/components/Estimate';
 export default {
-  data: function() {
+  data: function () {
     return {
       addEstimateCalculate: false,
-      estimate: {
-        length: 0,
-        width: 0,
-        percentage: .45,
-        highPercentage: .60,
-      }
     }
   },
-  computed: {
-    realTotal: function() {
-      let total = (this.$store.state.estimate.length * this.$store.state.estimate.width) * this.$store.state.estimate.percentage
-      return total
-    },
-    highTotal: function() {
-      let highTotal = (this.$store.state.estimate.length * this.$store.state.estimate.width) * this.$store.state.estimate.highPercentage
-      return highTotal
-    }
-  },
-  methods: {
-    round: function(val) {
-      let ammount = Math.floor(val * 100) / 100;
-      return ammount.toFixed(2);
-    }
+  components: {
+    Estimate
   }
 }
 </script>

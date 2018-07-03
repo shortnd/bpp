@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="text-center">
-      <h1>Ben Power Washing</h1>
+      <h2>Benjamin Paul's Pressure Washing</h2>
     </div>
   </div>
 </template>
@@ -13,5 +13,8 @@ export default {
 </script>
 
 <style>
+.fa-twitter {
+  color: lightblue;
+}
 
 </style>

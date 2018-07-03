@@ -29,7 +29,7 @@ module.exports = {
         $ : 'jquery',
         jQuery : 'jquery',
         'window.jQuery' : 'jquery'
-      })
+      }),
     ],
     /*
     ** Run ESLint on save
@@ -45,6 +45,6 @@ module.exports = {
       }
     }
   },
-  css: ['bootstrap/dist/css/bootstrap.css'],
+  css: ['bootstrap/dist/css/bootstrap.css','@fortawesome/fontawesome-free/css/all.css'],
   plugins: ['~plugins/bootstrap.js']
 }
